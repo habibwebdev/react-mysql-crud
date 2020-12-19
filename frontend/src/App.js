@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 import './App.css'
 
 function App() {
@@ -8,10 +9,36 @@ function App() {
   const [position, setPosition] = useState('')
   const [wage, setWage] = useState(0)
 
-  const getValues = () => {
-    console.log(name, age, country, position, wage)
-  }
+  const storeDetails = async () => {
+    // console.log(name, age, country, position, wage)
 
+    // try {
+    //   const insert = await axios.post('http://localhost:5000/create', {
+    //     name: name,
+    //     age: age,
+    //     country: country,
+    //     position: position,
+    //     wage: wage,
+    //   })
+
+    //   console.log(insert.data)
+    // } catch (error) {
+    //   // Handle the error
+    //   console.log(error)
+    // }
+
+    axios
+      .post('http://localhost:5000/create', {
+        name,
+        age,
+        country,
+        position,
+        wage,
+      })
+      .then(() => {
+        console.log('success!!!')
+      })
+  }
   return (
     <div className="App">
       <div className="information">
@@ -52,7 +79,7 @@ function App() {
           id="wage"
           onChange={(e) => setWage(e.target.value)}
         />
-        <input type="button" value="Submit" onClick={getValues} />
+        <input type="button" value="Submit" onClick={storeDetails} />
       </div>
     </div>
   )
