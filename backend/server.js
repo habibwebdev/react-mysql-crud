@@ -36,7 +36,7 @@ app.post('/create', (req, res) => {
   const wage = req.body.wage
 
   db.query(
-    'INSERT INTO employees (name, age, country, position, wage) VALUES (?,?,?,?,?)',
+    'INSERT INTO employees (name, age, country, position, wage) VALUES (?, ?, ?, ?, ?)',
     [name, age, country, position, wage],
     (error, result) => {
       if (error) {
@@ -46,6 +46,16 @@ app.post('/create', (req, res) => {
       }
     }
   )
+})
+
+app.get('/employees', (req, res) => {
+  db.query('SELECT * FROM employees', (error, result) => {
+    if (error) {
+      console.log(error)
+    } else {
+      res.send(result)
+    }
+  })
 })
 
 app.listen(5000, () => {

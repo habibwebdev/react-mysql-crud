@@ -33,3 +33,60 @@
   background-color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
 }
+
+hr {
+  margin: 50px 0;
+}
+
+.employees {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employees button {
+  background-color: green;
+  padding: 10px;
+  color: #fff;
+  border: 1px solid green;
+  border-radius: 3px;
+}
+
+.employees button:hover {
+  background-color: rgba(0, 128, 0, 0.8);
+  cursor: pointer;
+}
+
+.employees-table {
+  margin-top: 50px;
+}
+
+table,
+th,
+td {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+}
+
+table thead tr {
+  background-color: black;
+  color: #fff;
+}
+
+table tbody tr {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.175);
+}
+
+table thead tr th {
+  font-weight: 300;
+}
+
+th,
+td {
+  padding: 20px;
+}
